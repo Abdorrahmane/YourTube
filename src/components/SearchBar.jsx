@@ -29,7 +29,6 @@ function SearchBar() {
                 sx={{
                     p:"10px",
                     color:"red",
-                    border:"1px solid gray"
                 }}
                 >
                 <Search/>
