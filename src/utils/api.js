@@ -1,21 +1,20 @@
 import axios from "axios";
-import { option } from "yargs";
 
 
-const BASE_URL = 'https://youtube-v311.p.rapidapi.com/'
+const BASE_URL = 'https://www.googleapis.com/youtube/v3'
 const options = {
     url: BASE_URL,
     params: {
-      maxResults: '50'
+      maxResults:'50',
+      key: process.env.REACT_APP_YOUTUBE_API_KEY
     },
-    headers: {
-      'X-RapidAPI-Key': process.env.X_RapidAPI_KEY,
-      'X-RapidAPI-Host': 'youtube-v311.p.rapidapi.com'
-    }
+    // headers: {
+    //   'X-RapidAPI-Host': 'youtube-v311.p.rapidapi.com',
+    //   'X-RapidAPI-Key': process.env.REACT_APP_YOUTUBE_API_KEY
+    // }
   };
   
 
   export const fetch = async (url) => {
-    const {data} = await axios.get(`${BASE_URL}${url}`, option);
-    return data;
+    return await axios.get(`${BASE_URL}/${url}`, options);
   }
