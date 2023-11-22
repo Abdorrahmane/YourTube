@@ -2,8 +2,7 @@ import { Stack } from '@mui/system'
 import React from 'react'
 import { categories } from '../utils/consts'
 
-function SideBar() {
-    const selectedCategory = 'New';
+function SideBar({selectedCategory, setSelectedCategory}) {
     return (
         <Stack direction='row'
             sx={{
@@ -25,6 +24,7 @@ function SideBar() {
                         color:'white'
                     }}
                     key={category.name}
+                    onClick={()=> setSelectedCategory(category.name)}
                 >
                     <span 
                         style={{
